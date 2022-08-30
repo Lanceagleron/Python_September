@@ -11,13 +11,13 @@ second blank: sequence to iterate over
 """
 
 
-for i in range(50,-1,-1):
-    if i == 10:
-        continue #will go on to the next iteration without running anymore code
+# for i in range(50,-1,-1):
+#     if i == 10:
+#         continue #will go on to the next iteration without running anymore code
 
-    if i == 8:
-        break #break will stop all iteration
-    print(i)
+#     if i == 8:
+#         break #break will stop all iteration
+#     print(i)
 # range(start,stop,step)
 # start is inclucsive and default to 0, can be left out
 # stop is exclusive, will stop before this number
@@ -65,10 +65,10 @@ dog_list = [
     }
 ]
 
-# for dog in dog_list:
-#     print(f"{dog['name']} will print out now")
-#     for key in dog:
-#         print(f"{key}: {dog[key]}")
+for dog in dog_list:
+    print(f"{dog['name']} will print out now")
+    for key in dog:
+        print(f"{key}: {dog[key]}")
 
 
 #WHILE
