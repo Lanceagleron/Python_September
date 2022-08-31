@@ -48,20 +48,26 @@ class User:
         self.gold_card_points = 0
     
     def make_withraw(self,amount):
-        if self.account.balance > amount:
-            self.account.balance = self.account.balance - amount
-            print(f"withdrew ${amount}")
-        else:
-            self.account.balance = self.account.balance - 5
-            print("Insufficient funds: Charging a $5 fee")
+
+        self.account.withdraw(amount)
         return self
+        # if self.account.balance > amount:
+        #     self.account.balance = self.account.balance - amount
+        #     print(f"withdrew ${amount}")
+        # else:
+        #     self.account.balance = self.account.balance - 5
+        #     print("Insufficient funds: Charging a $5 fee")
+        # return self
+        
+
 
     def make_deposit(self,amount):
-        self.account.balance = self.account.balance + amount
-        print(f"You deposited ${amount}")
+        # self.account.balance = self.account.balance + amount
+        # print(f"You deposited ${amount}")
+        # return self
+        self.account.deposit(amount)
         return self
-        # self.account.deposit()
-        # print(self.account.balance)
+        
 
     #display_info(self) - Have this method print all of the users' details on separate lines.
     def display_info(self):
@@ -101,4 +107,4 @@ marco = User("Marco", "Cabrera", "marcocabrera@gmail.com", 29)
 william = User("William","Pascaran","williampascaran@gmail.com", 27)
 lance = User("Lance","Agleron","lanceagleron@gmail.com", 28)
 
-lance.make_deposit(150).make_withraw(200).display_user_balance()
+lance.make_deposit(150).make_withraw(100).display_user_balance()
