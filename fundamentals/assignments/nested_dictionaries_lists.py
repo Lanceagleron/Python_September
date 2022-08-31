@@ -72,7 +72,11 @@ dojo = {
    'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
 
+def printinfo(dict):
+    for i in dict:
+        print(i)
 
+printinfo(dojo)
 # # output:
 # 7 LOCATIONS
 # San Jose
