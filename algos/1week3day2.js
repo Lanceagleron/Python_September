@@ -35,16 +35,17 @@ const expected5 = "";
  * @param {string} separator To separate each item of the given arr.
  * @returns {string} The given array items as a string separated by the given separator.
  */
-function join(arr, separator) {
-    //Your code here
-    var string = "";
-    for (let i = 0; i <= arr.length -1; i++ ){
-        string += arr[i] + separator 
-        // string
-    }
-
-    return string
-
+ function join(arr, separator) {
+  var str = "";
+  if (arr.length == 1) {
+    str += arr[0];
+  }
+  for (var i = 0; i < arr.length; i++) {
+    str += arr[i];
+    if (i != arr.length-1)
+      str += separator;
+  }
+  return str;
 }
 
 console.log(join(arr1, separator1)) // Expected: "1, 2, 3"
