@@ -1,3 +1,61 @@
+class Player:
+
+
+    def __init__(self, player_dict):
+        self.name = player_dict ["name"]
+        self.age = player_dict ["age"]
+        self.position = player_dict ["position"]
+        self.team = player_dict ["team"]
+
+
+    def __repr__(self):
+        return "player {}, {} y/o, pos: {} team: {}" .format(self.name, self.age, self.position, self.team)
+
+    # def print_info(self):
+    #     print(f"Name: {self.name} age: {self.age} position: {self.position} team:{self.team}")
+    #     return self
+
+    # @classmethod
+    # def print_new_team(cls):
+    #     for i in cls.new_team:
+            
+    #         i.print_info()
+            
+
+
+
+kevin = {
+    	"name": "Kevin Durant", 
+    	"age":34, 
+    	"position": "small forward", 
+    	"team": "Brooklyn Nets"
+}
+jason = {
+    	"name": "Jason Tatum", 
+    	"age":24, 
+    	"position": "small forward", 
+    	"team": "Boston Celtics"
+}
+kyrie = {
+    	"name": "Kyrie Irving", 
+    	"age":32,
+        "position": "Point Guard", 
+    	"team": "Brooklyn Nets"
+}
+
+
+# print(kevin["name"])
+
+player_kevin = Player(kevin)
+print(player_kevin)
+
+player_jason = Player(jason)
+print(player_jason)
+
+player_kyrie = Player(kyrie)
+print(player_jason)
+
+print("=============================")
 
 players = [
     {
@@ -38,70 +96,9 @@ players = [
     }
 ]
 
+new_team = []
+for player_dict in players:
+    player = Player(player_dict)
+    new_team.append(player)
 
-
-
-
-
-
-class Player:
-
-    new_team = []
-
-    def __init__(self, name, age, position, team):
-        self.name = name
-        self.age = age
-        self.position = position
-        self.team = team
-        Player.new_team.append(self)
-
-
-    def print_info(self):
-        print(f"Name: {self.name} age: {self.age} position: {self.position} team:{self.team}")
-        return self
-
-    @classmethod
-    def print_new_team(cls):
-        for i in cls.new_team:
-            
-            i.print_info()
-            
-
-
-
-kevin = {
-    	"name": "Kevin Durant", 
-    	"age":34, 
-    	"position": "small forward", 
-    	"team": "Brooklyn Nets"
-}
-jason = {
-    	"name": "Jason Tatum", 
-    	"age":24, 
-    	"position": "small forward", 
-    	"team": "Boston Celtics"
-}
-kyrie = {
-    	"name": "Kyrie Irving", 
-    	"age":32,
-        "position": "Point Guard", 
-    	"team": "Brooklyn Nets"
-}
-    
-# Create your Player instances here!
-# player_jason = ???
-
-player_kevin = Player(kevin["name"], kevin["age"], kevin["position"], kevin["team"])
-
-player_jason = Player(jason["name"], jason["age"], jason["position"], jason["team"])
-
-player_kyrie = Player(kyrie["name"], kyrie["age"], kyrie["position"], kyrie["team"])
-
-
-
-# print(player_kevin.team)
-# print(player_jason.team)
-# print(player_kyrie.team)
-
-Player.print_new_team()
-
+print(new_team)
