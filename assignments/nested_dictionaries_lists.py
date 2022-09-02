@@ -73,8 +73,11 @@ dojo = {
 }
 
 def printinfo(dict):
-    for i in dict:
-        print(i)
+    for key,value in dict.items():
+        print(len(value),key.upper())
+        for i in range(0, len(value)):
+            print(value[i])
+    
 
 printinfo(dojo)
 # # output:
