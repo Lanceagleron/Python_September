@@ -28,9 +28,9 @@ class Ninja:
 felix = Cat("felix", "stand")
 
 bowser = Dog("Bowser", "rollover")
-
+# list of pets
 lance = Ninja("Lance", "Agleron", "Strawberry", "Meat", bowser)
-mase = Ninja ("Mase" ,"Buquid" ,"Tuna" ,"Blueberry" , felix)
+mase = Ninja ("Mase" ,"Buquid" ,"Blueberry" ,"Tuna" , felix)
 
 # dog.noise()
 

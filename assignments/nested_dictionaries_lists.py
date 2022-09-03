@@ -16,23 +16,23 @@ z = [ {'x': 10, 'y': 20} ]
 # # Change the value 10 in x to 15. Once you're done, x should now be [ [5,2,3], [15,8,9] ].
 inside_drawer1 = x[1]
 inside_drawer1[0] = 15
-print(x)
+# print(x)
 
 # # Change the last_name of the first student from 'Jordan' to 'Bryant'
 student1 = people[0]
 student1['last_name'] = 'Bryant'
-print(student1)
+# print(student1)
 
 # # In the sports_directory, change 'Messi' to 'Andres'
 
 sports_directory['soccer'][0] = "Andres"
-print(sports_directory)
+# print(sports_directory)
 
 # # Change the value 20 in z to 30
 
 a = z[0] 
 a['y'] = 30
-print(a)
+# print(a)
 
 
 
@@ -50,6 +50,15 @@ def iterateDictionary(list):
         for key in student:
             print(f"{key} - {student[key]}")
 
+"""
+def iterate_dictionary(some_list):
+    for i in range(len(some_list)):
+        empty_str = ""
+        for key, val in some_list[i].items():
+            empty_str+= f"{key}-{val},"
+        print(f"{empty_str}")
+
+"""
 
 iterateDictionary(students)
     
@@ -64,8 +73,8 @@ def iterateDictionary2(key_name, some_list):
     for i in some_list:
         print(i[key_name])
 
-iterateDictionary2('first_name', students)
-iterateDictionary2('last_name', students)
+# iterateDictionary2('first_name', students)
+# iterateDictionary2('last_name', students)
 
 dojo = {
    'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
@@ -79,7 +88,7 @@ def printinfo(dict):
             print(value[i])
     
 
-printinfo(dojo)
+# printinfo(dojo)
 # # output:
 # 7 LOCATIONS
 # San Jose
