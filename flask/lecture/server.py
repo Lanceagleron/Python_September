@@ -13,7 +13,23 @@ def fill_out_form():
     return render_template('form.html')
 
 
-
+@app.route("/iterate")
+def iterate():
+    cats = [
+        {
+            'name': "Garfield",
+            'color': 'orange'
+        },
+        {
+            'name': 'scar',
+            'color': 'darkbrown'
+        },
+        {
+            'name': 'felix',
+            'color': 'black'
+        }
+    ]
+    return render_template("cat.html", cats = cats)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>iterate</title>
 </head>
 <body>
-    <h1>this is the index!</h1>
-    <a href="/fill_out_form">let's fill out a form!</a>
+    <h1>Here's some cats</h1>
+    <ul>
+    {% for one_cat in cats %}
+        <li>Name: {{one_cat['name']}} Color: {{one_cat.color}} </li>
+    {%endfor%}
+    </ul>
 </body>
 </html>
