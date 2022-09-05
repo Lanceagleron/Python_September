@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    text-align: center;
+}
+
+body {
+    margin-top: 100px;
+}
+
+#container {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+button {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#btn1 {
+    background-color:  green;
+}
+
+#btn2 {
+    background-color: cornflowerblue;
+}

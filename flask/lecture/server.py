@@ -6,7 +6,7 @@ app.secret_key = "No secrets on github"
 
 @app.route('/')
 def index():
-    print("I am printing someong into the terminal, this might be useful")
+    print("I am printing something into the terminal, this might be useful")
     return render_template('index.html')
 
 
