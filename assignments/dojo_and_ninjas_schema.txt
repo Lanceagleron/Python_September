@@ -1,0 +1,27 @@
+SELECT * FROM ninjas_dojo.dojos;
+
+INSERT INTO dojos (name)
+VALUE ("cod"), ('ing'), ('dojo');
+
+DELETE FROM dojos WHERE id = 1;
+DELETE FROM dojos WHERE id = 2;
+DELETE FROM dojos WHERE id = 3;
+
+INSERT INTO dojos (name)
+VALUE ("San Jose"), ('Burbank'), ('Seattle');
+
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUE ("lance", "agleron", 28, 4), ("martin", "agleron", 26, 4), ("marco", "cabrera", 29, 4);
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUE ("nishiki", "oda", 35, 5), ("gale", "evangelista", 28, 5), ("zac", "reguerra", 31, 5);
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUE ("pearl", "barretto", 28, 6), ("mase", "buquid", 28, 6), ("jao", "lin", 30, 6);
+
+SELECT * FROM ninjas WHERE dojo_id = 4;
+
+SELECT * FROM ninjas WHERE dojo_id = 6;
+
+SELECT * FROM ninjas WHERE id = 9;
