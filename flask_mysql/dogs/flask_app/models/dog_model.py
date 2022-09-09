@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask import flash
 DATABASE = 'dogs_db'
 
 class Dog:
@@ -47,7 +48,32 @@ class Dog:
         return connectToMySQL(DATABASE).query_db(query,data)
 
 
+    @staticmethod
+    def validator(data):
+        is_valid = True
+        if len(data['name']) <= 0:
+            print("name is not valid")
+            flash("name is not valid")
+        is_valid = False
 
+    
+        if len(data['breed']) <= 0:
+            print("breed is not valid")
+            flash("breed is not valid")
+        is_valid = False
+
+    
+        if len(data['color']) <= 0:
+            print("color is not valid")
+            flash("color is not valid")
+        is_valid = False
+
+    
+        if len(data['age']) <= 0:
+            print("age is not valid")
+            flash("age is not valid")
+        is_valid = False
+        return is_valid
 
 
 

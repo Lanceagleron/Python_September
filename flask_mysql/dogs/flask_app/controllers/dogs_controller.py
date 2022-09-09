@@ -1,5 +1,6 @@
 from flask_app import app
 from flask import render_template, request, session, redirect
+
 from flask_app.models.dog_model import Dog
 
 @app.route('/')
@@ -17,9 +18,15 @@ def one_dog(id):
 def new_dog_form():
     return render_template('dogs_new.html')
 
-
+#Process new dog form
 @app.route('/dogs/create', methods=['POST'])
 def create_dog():
+    #validation
+    is_valid = Dog.validator(request.form)
+    if not is_valid:
+        return redirect('/dogs/new')
+
+
     Dog.create(request.form)
     return redirect('/')
 
@@ -34,6 +41,11 @@ def edit_dog_form(id):
 
 @app.route('/dogs/<int:id>/update', methods=['POST'])
 def update_dog(id):
+
+    is_valid = Dog.validator(request.form)
+    if not is_valid:
+        return redirect(f'/dogs/{id}/edit')
+
     data = {
         **request.form, #quick wat to copy the contents of request.form into this disctionary
         'id':id
