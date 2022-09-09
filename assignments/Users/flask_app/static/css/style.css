@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: monospace;
+}
+
+body {
+    background-color: white;
+}
+
+
+td {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    font-size: large;
+}
+
+th {
+    /* border: 1px solid black; */
+    padding: 10px;
+    background-color: rgb(42,42,42);
+    color: aqua;
+}
+
+table {
+    /* border: 1px solid black; */
+    margin: 0px auto;
+    border-collapse: collapse;
+}
+
+#container {
+    /* border: 2px solid black; */
+    display: flex;
+    margin: 0px auto;
+}
+
+#surveybox  {
+    border: 3px solid black;
+    background-color: rgb(42,42,42);
+    margin: 30px auto;
+    padding: 10px;
+    
+}
+
+input {
+    text-align: start;
+}
+
+button {
+    background-color: green;
+    margin-top: 10px;
+    padding: 2px;
+    border-radius: 5px;
+}
+h1,h2 {
+    color: black;
+    text-align: center;
+}
+
+#surveybox p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.answer {
+    color: dodgerblue;
+}
