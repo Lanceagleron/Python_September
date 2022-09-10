@@ -8,8 +8,9 @@
     <title>Read (All)</title>
 </head>
 <body>
+    <br>    
     <h1>All Users</h1>
-
+    <br>
     <div id="container">
     <table>
         <tr>
@@ -17,6 +18,7 @@
             <th>Full Name</th>
             <th>Email</th>
             <th>Created at</th>
+            <th>Actions</th>
         </tr>
         {% for one_user in all_users %}
         <tr>
@@ -24,10 +26,16 @@
             <td>{{one_user.first_name}} {{one_user.last_name}}</td>
             <td>{{one_user.email}}</td>
             <td>{{one_user.created_at}}</td>
+            <td><a href="/users/{{one_user.id}}/edit">Edit</a> |
+                <a href="/users/{{one_user.id}}/delete">Delete</a> | 
+                <a href="/users/{{one_user.id}}">Show</a>
+            </td>
         </tr>
+        
         {%endfor%}
     </table>
     </div>
+    <br>
     <a href="/users/new">Add a New User</a>
 </body>
 </html>

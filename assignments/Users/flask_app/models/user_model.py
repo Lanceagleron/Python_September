@@ -11,6 +11,11 @@ class User:
         self.updated_at = data['updated_at']
 
     @classmethod
+    def create(cls, data):
+        query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
+        return connectToMySQL(DATABASE).query_db(query, data)
+
+    @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
         results = connectToMySQL(DATABASE).query_db(query)
@@ -21,6 +26,20 @@ class User:
         return all_users
 
     @classmethod
-    def create(cls, data):
-        query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
-        return connectToMySQL(DATABASE).query_db(query, data)
+    def get_one(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(DATABASE).query_db(query,data)
+        if results:
+            user_instance = cls(results[0])
+            return user_instance
+        return False
+
+    @classmethod
+    def update(cls,data):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(id)s;"
+        return connectToMySQL(DATABASE).query_db(query,data)
+
+    @classmethod
+    def delete(cls,data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        return connectToMySQL(DATABASE).query_db(query,data)

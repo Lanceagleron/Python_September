@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>User {{one_user.id}}</h1>
+    <a href="/">Home</a>
+    <div id="container">
+        <div id="surveybox">
+            <p>
+                Full Name: {{one_user.first_name}} {{one_user.last_name}}
+            </p>
+            <p>
+                Email: {{one_user.email}}
+            </p>
+            <p>
+                Created on: {{one_user.created_at}}
+            </p>
+            <p>
+                Last Updated on: {{one_user.updated_at}}
+            </p>
+        </div>
+    </div>
+    <p>
+        <a href="/users/{{one_user.id}}/edit">Edit</a> | <a href="/users/<int:id>/delete">Delete</a>
+    </p>
+</body>
+
+</html>

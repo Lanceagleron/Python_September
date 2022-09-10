@@ -13,6 +13,11 @@ class Dog:
         self.updated_at = data['updated_at']
 
     @classmethod
+    def create(cls, data):
+        query = "INSERT INTO dogs (name, breed, color, age) VALUES (%(name)s, %(breed)s, %(color)s, %(age)s);"
+        return connectToMySQL(DATABASE).query_db(query, data)
+
+    @classmethod
     def get_all(cls):
         query = "SELECT * FROM dogs;"
         result = connectToMySQL(DATABASE).query_db(query)
@@ -22,11 +27,6 @@ class Dog:
             dog_instance = cls(row_from_db) #instantiates dog object from row in db
             all_dogs.append(dog_instance) #add instance to list of instances
         return all_dogs#returns list of dog instances
-
-    @classmethod
-    def create(cls, data):
-        query = "INSERT INTO dogs (name, breed, color, age) VALUES (%(name)s, %(breed)s, %(color)s, %(age)s);"
-        return connectToMySQL(DATABASE).query_db(query, data)
 
     @classmethod
     def get_one(cls, data):
