@@ -11,5 +11,14 @@
     <p>Breed:{{one_dog.breed}}</p>
     <p>Color:{{one_dog.color}} </p>
     <p>Age:{{one_dog.age}}</p>
+    <h3>Awards {{one_dog.name}} has won:</h3>
+    <!-- award_list|length to get length in jinja -->
+    {% if one_dog.award_list[0].id == None %}
+    <p>Haven't won any yet :(</p>
+    {%else%}
+    {% for award in one_dog.award_list %}
+    <p>{{award.title}}</p>
+    {%endfor%}
+    {%endif%}
 </body>
 </html>

@@ -1,6 +1,5 @@
 from flask_app import app
 from flask import render_template, request, session, redirect
-
 from flask_app.models.dog_model import Dog
 
 @app.route('/')
@@ -11,7 +10,7 @@ def index():
 
 @app.route('/dogs/<int:id>')
 def one_dog(id):
-    one_dog = Dog.get_one({'id':id})
+    one_dog = Dog.get_one_with_awards({'id':id})
     return render_template('one_dog.html', one_dog=one_dog)
 
 @app.route('/dogs/new')

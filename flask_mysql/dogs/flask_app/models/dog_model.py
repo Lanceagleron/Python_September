@@ -1,6 +1,8 @@
+from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
-DATABASE = 'dogs_db'
+from flask_app import DATABASE
+from flask_app.models import award_model
 
 class Dog:
     def __init__(self,data):
@@ -34,6 +36,28 @@ class Dog:
         results = connectToMySQL(DATABASE).query_db(query,data)
         if len(results) > 0:
             dog_instance = cls(results[0])
+            return dog_instance
+        return False
+
+    @classmethod
+    def get_one_with_awards(cls,data):
+        query = "SELECT * FROM dogs LEFT JOIN awards ON dogs.id = awards.dog_id WHERE dogs.id = %(id)s;"
+        results = connectToMySQL(DATABASE).query_db(query,data)
+        print(results)
+        if len(results) > 0:
+            dog_instance = cls(results[0])
+            award_list = []
+            for row_from_db in results:
+                award_data = {
+                    'id' : row_from_db['awards.id'],
+                    'title' : row_from_db['title'],
+                    'created_at' : row_from_db['awards.created_at'],
+                    'updated_at' : row_from_db['awards.updated_at'],
+                    'dog_id' : row_from_db['dog_id']
+                }
+                award_instance = award_model.Award(award_data)
+                award_list.append(award_instance)
+            dog_instance.award_list = award_list
             return dog_instance
         return False
 
