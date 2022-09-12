@@ -25,7 +25,6 @@ def create_dog():
     if not is_valid:
         return redirect('/dogs/new')
 
-
     Dog.create(request.form)
     return redirect('/')
 
