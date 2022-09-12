@@ -11,4 +11,14 @@ def new_award_form():
 @app.route('/awards/create', methods=['POST'])
 def create_award():
     Award.create(request.form)
-    return redirect('/')
+    return redirect(f'/dogs/{request.form["dog_id"]}')
+
+@app.route('/awards')
+def all_awards():
+    all_awards = Award.get_all()
+    return render_template("all_awards.html", all_awards=all_awards)
+
+@app.route('/awards/<int:id>')
+def one_award(id):
+    one_award = Award.get_one({'id':id})
+    return render_template("one_award.html", one_award=one_award)

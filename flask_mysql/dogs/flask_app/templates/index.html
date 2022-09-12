@@ -9,6 +9,8 @@
 <body>
     <h1>Welcome to my dogs app</h1>
     <a href="/dogs/new">Add a Dog</a>
+    <br>
+    <a href="/awards">View all awards</a>
     <ul>
         {% for one_dog in all_dogs %}
         <li>{{one_dog.id}}) Name: <a href="/dogs/{{one_dog.id}}">{{one_dog.name}}</a> Breed:{{one_dog.breed}} Color:{{one_dog.color}} Age:{{one_dog.age}} 
