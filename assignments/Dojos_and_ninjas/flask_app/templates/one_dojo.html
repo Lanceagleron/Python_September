@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{one_dojo.name}} Dojo</title>
 </head>
 <body>
     <h1>{{one_dojo.name}} Ninjas</h1>
@@ -14,11 +14,11 @@
             <th>Last Name</th>
             <th>Age</th>
         </tr>
-        {% for one_ninja in one_dojo.list_of_ninja_list %}
+        {% for ninja in one_dojo.ninja_list %}
         <tr>
-            <td>{{one_ninja.first_name}}</td>
-            <td>{{one_ninja.last_name}}</td>
-            <td>{{one_ninja.age}}</td>
+            <td>{{ninja.first_name}}</td>
+            <td>{{ninja.last_name}}</td>
+            <td>{{ninja.age}}</td>
         </tr>
         {%endfor%}
     </table>

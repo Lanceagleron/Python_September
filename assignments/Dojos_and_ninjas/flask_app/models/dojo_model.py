@@ -44,6 +44,6 @@ class Dojo:
                 }
                 ninja_instance = ninja_model.Ninja(ninja_data)
                 ninja_list.append(ninja_instance)
-                dojo_instance.list_of_ninja_list = ninja_list
-                return dojo_instance
-            return False
+            dojo_instance.ninja_list = ninja_list
+            return dojo_instance
+        return False

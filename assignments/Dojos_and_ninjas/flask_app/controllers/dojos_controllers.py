@@ -19,7 +19,6 @@ def dojos():
 
 @app.route('/dojos/<int:id>')
 def one_dojo(id):
-
     one_dojo = Dojo.get_one_with_ninjas({'id':id})
     print(one_dojo)
     return render_template('one_dojo.html', one_dojo=one_dojo)
