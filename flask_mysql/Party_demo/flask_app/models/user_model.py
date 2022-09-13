@@ -28,6 +28,14 @@ class User:
             return False
         return cls(results[0])
 
+    @classmethod
+    def get_by_id(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(DATABASE).query_db(query,data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+
     @staticmethod
     def validate(user_data):
         is_valid = True

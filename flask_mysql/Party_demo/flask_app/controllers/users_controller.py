@@ -1,9 +1,9 @@
-import imp
 from flask_app import app
 from flask import render_template, redirect, request, session
 from flask import flash
 from flask_bcrypt import Bcrypt
 from flask_app.models.user_model import User
+from flask_app.models.party_model import Party
 
 bcrypt = Bcrypt(app)
 
@@ -50,4 +50,9 @@ def logout():
 def welcome():
     if 'user_id' not in session:
         return redirect('/')
-    return "logged in, Good Stuff"
+    all_parties = Party.get_all()
+    user_data = {
+        'id': session['user_id']
+    }
+    logged_user = User.get_by_id(user_data)
+    return render_template("dashboard.html", all_parties=all_parties, logged_user = logged_user)
