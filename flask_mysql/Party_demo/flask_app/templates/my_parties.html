@@ -17,13 +17,11 @@
         <p class="text-danger">{{message}}</p>
         {%endfor%}
         <div class="d-flex justify-content-between">
-            <h1>Welcome, {{logged_user.first_name}}</h1>
+            <h1>{{logged_user.first_name}}'s Parties</h1>
             <div>
-                <a href="/my_parties" class="btn btn-primary">My Parties</a>
-                <a href="/user/logout" class="btn btn-danger">Logout</a>
+                <a href="/welcome" class="btn btn-primary">Home</a>
             </div>
         </div>
-        <h3>All the cool parties we know about</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -31,24 +29,21 @@
                     <th>Location</th>
                     <th>Date</th>
                     <th>All Ages</th>
-                    <th>Posted by</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% for party in all_parties %}
+                {% for party in logged_user.parties %}
                 <tr>
                     <td>{{party.what}}</td>
                     <td>{{party.location}}</td>
                     <td>{{party.date}}</td>
                     <td>{%if party.all_ages == 1%}True{%else%}False{%endif%}</td>
-                    <td>{{party.planner.first_name}} {{party.planner.last_name}}</td>
                     <td>
                         <a href="/parties/{{party.id}}">View</a>
-                        {% if session['user_id'] == party.user_id %}
                         | <a href="/parties/{{party.id}}/edit">Edit</a> |
                         <a href="/parties/{{party.id}}/delete">Delete</a>
-                        {%endif%}
+                        
                     </td>
                 </tr>
                 {%endfor%}

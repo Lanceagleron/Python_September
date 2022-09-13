@@ -1,8 +1,9 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import DATABASE
 from flask import flash
-
+from flask_app.models import party_model
 import re
+
 EMAIL_REGEX = re.compile(r"[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+")
 
 class User:
@@ -30,11 +31,25 @@ class User:
 
     @classmethod
     def get_by_id(cls,data):
-        query = "SELECT * FROM users WHERE id = %(id)s;"
+        query = "SELECT * FROM users LEFT JOIN parties on users.id = parties.user_id WHERE users.id = %(id)s;"
         results = connectToMySQL(DATABASE).query_db(query,data)
         if len(results) < 1:
             return False
-        return cls(results[0])
+        one_user = cls(results[0])
+        list_of_parties = []
+        for row in results:
+            if row['parties.id'] == None:
+                break
+            party_data = {
+            **row,
+            'id': row['parties.id'],
+            'created_at': row['parties.created_at'],
+            'updated_at': row['parties.updated_at']
+            }
+            this_party = party_model.Party(party_data)
+            list_of_parties.append(this_party)
+        one_user.parties = list_of_parties
+        return one_user
 
     @staticmethod
     def validate(user_data):
