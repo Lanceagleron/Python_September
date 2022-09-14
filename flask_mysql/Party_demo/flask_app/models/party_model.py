@@ -65,7 +65,7 @@ class Party:
 
     @classmethod
     def delete(cls, data):
-        query = "DELETE FROM parties WHERE id = %(id)s"
+        query = "DELETE FROM parties WHERE id = %(id)s;"
         return connectToMySQL(DATABASE).query_db(query,data)
 
     @staticmethod

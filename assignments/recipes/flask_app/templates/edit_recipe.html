@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Recipe Share</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <h1>Edit Recipe</h1>
+            <div>
+                <a href="/welcome" class="btn btn-primary">Home</a>
+            </div>
+        </div>
+        {% for message in get_flashed_messages()%}
+        <p class="text-danger">{{message}}</p>
+        {%endfor%}
+        <form action="/recipe/{{one_recipe.id}}/update" method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{one_recipe.name}}">
+                <label for="description">Description:</label>
+                <br>
+                <textarea name="description" id="" cols="30" rows="10">{{one_recipe.description}}</textarea>
+                <br>
+                <label for="instruction">Instructions:</label>
+                <br>
+                <textarea name="instruction" id="instruction" cols="30" rows="10">{{one_recipe.instruction}}</textarea>
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" class="form-control" value="{{one_recipe.date}}">
+                <p>Under 30 minuites?</p>
+                <label for="true">Yes</label>
+                <input type="radio" name="under_30mins" id="true" value="1" {%if one_recipe.under_30mins == 1%} checked {%endif%}>
+                <label for="false">No</label>
+                <input type="radio" name="under_30mins" id="false" value="0" {%if one_recipe.under_30mins == 0%} checked {%endif%}>
+                <br>
+                <br>
+            <button class="btn btn-primary">Edit Recipe</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
